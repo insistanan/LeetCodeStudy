@@ -6,7 +6,7 @@ import java.util.List;
 // 新手村第三题   412、Fizz Buzz
 public class Solution003 {
     public static void main(String[] args) {
-        List<String> strings = new FB().fizzBuzz(3);
+        List<String> strings = new FB().fizzBuzz(16);
         for (String s : strings){
             System.out.println(s);
         }
@@ -23,8 +23,7 @@ class FB {
             fb.add(sb.toString());
             return fb;
         }
-        fb.add("1");
-        for (int i = 1; i < n; i++) {
+        for (int i = 1; i <= n; i++) {
             if (i % 3 == 0 ){
                 sb.append("Fizz");
             }
@@ -32,7 +31,7 @@ class FB {
                 sb.append("Buzz");
             }
             if (i % 3 != 0 && i % 5 != 0){
-                sb.append(i+1);
+                sb.append(i);
             }
             fb.add(sb.toString());
             /*sb.delete(0,sb.length());*/
