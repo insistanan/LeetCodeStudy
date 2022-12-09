@@ -6,7 +6,7 @@ import java.util.List;
 // 新手村第三题   412、Fizz Buzz
 public class Solution003 {
     public static void main(String[] args) {
-        List<String> strings = new FB().fizzBuzz(16);
+        List<String> strings = new FB().fizzBuzz2(16);
         for (String s : strings){
             System.out.println(s);
         }
@@ -15,6 +15,7 @@ public class Solution003 {
 
 
 class FB {
+    //解法一
     public List<String> fizzBuzz(int n) {
         List<String> fb = new ArrayList<>(n);
         StringBuffer sb = new StringBuffer();
@@ -36,6 +37,26 @@ class FB {
             fb.add(sb.toString());
             /*sb.delete(0,sb.length());*/
             sb.setLength(0);
+        }
+        return fb;
+    }
+    //解法二
+    public List<String> fizzBuzz2(int n){
+        List<String> fb = new ArrayList<>();
+        if ( n <= 0) {
+            fb.add("error");
+            return fb;
+        }
+        for (int i = 1; i <= n; i++) {
+            if (i%3==0 && i%5==0){
+                fb.add("FizzBuzz");
+            }else if (i%3==0){
+                fb.add("Fizz");
+            }else if (i%5==0){
+                fb.add("Buzz");
+            }else {
+                fb.add(Integer.toString(i));
+            }
         }
         return fb;
     }
