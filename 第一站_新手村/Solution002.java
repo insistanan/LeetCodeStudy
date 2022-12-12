@@ -1,4 +1,4 @@
-package 新手村;
+package 第一站_新手村;
 
 // 新手村第二题   383、赎金信
 public class Solution002 {

@@ -1,4 +1,4 @@
-package 新手村;
+package 第一站_新手村;
 
 import java.util.ArrayList;
 import java.util.List;

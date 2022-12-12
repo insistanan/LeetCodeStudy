@@ -1,4 +1,4 @@
-package 新手村;
+package 第一站_新手村;
 
 // 新手村第四题   876、链表的中间节点
 public class Solution004 {

@@ -1,4 +1,4 @@
-package 新手村;
+package 第一站_新手村;
 
 // 新手村第一题   1480、一维数组的动态和
 public class Solution001 {
