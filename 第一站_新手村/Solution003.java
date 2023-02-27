@@ -3,7 +3,16 @@ package 第一站_新手村;
 import java.util.ArrayList;
 import java.util.List;
 
-// 新手村第三题   412、Fizz Buzz
+/**
+ * solution003
+ * 新手村第三题   412、Fizz Buzz https://leetcode.cn/problems/fizz-buzz/
+ * answer[i] == "FizzBuzz" 如果 i 同时是 3 和 5 的倍数。
+ * answer[i] == "Fizz" 如果 i 是 3 的倍数。
+ * answer[i] == "Buzz" 如果 i 是 5 的倍数。
+ * answer[i] == i （以字符串形式）如果上述条件全不满足。
+ * @author insis
+ * @date 2023/02/27
+ */
 public class Solution003 {
     public static void main(String[] args) {
         List<String> strings = new FB().fizzBuzz2(16);

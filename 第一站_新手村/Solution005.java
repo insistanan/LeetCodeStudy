@@ -1,6 +1,12 @@
 package 第一站_新手村;
 
-// 新手村第五题   1342、将数字变成0的操作次数
+/**
+ * solution005
+ * 新手村第五题   1342、将数字变成0的操作次数 https://leetcode.cn/problems/number-of-steps-to-reduce-a-number-to-zero/
+ * 给你一个非负整数 num ，请你返回将它变成 0 所需要的步数。 如果当前数字是偶数，你需要把它除以 2 ；否则，减去 1 。
+ * @author insis
+ * @date 2023/02/27
+ */
 public class Solution005 {
     public static void main(String[] args) {
         System.out.println(new bian0().numberOfSteps(5));
