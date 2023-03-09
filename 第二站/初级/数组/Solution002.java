@@ -1,4 +1,4 @@
-package 第二站_初级.数组;
+package 第二站.初级.数组;
 
 //数组第二题：移除元素
 public class Solution002 {
@@ -29,7 +29,7 @@ public class Solution002 {
 
     public static void main(String[] args) {
         int[] nums = {2,0,1,2,2,3,2};
-        System.out.println(new Solution002().removeElement1(nums, 2)+",");
+        System.out.println(new Solution002().removeElement2(nums, 2)+",");
         for (int i = 0; i < nums.length; i++) {
             System.out.println(nums[i]);
         }

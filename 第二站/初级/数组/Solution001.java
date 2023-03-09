@@ -1,4 +1,4 @@
-package 第二站_初级.数组;
+package 第二站.初级.数组;
 
 //数组第一题：移动零
 public class Solution001 {
@@ -33,15 +33,15 @@ public class Solution001 {
         }
     }
 
-    //参考快速排序,以零作为中间节点
+    //参考快速排序，两个指针
     public void moveZeroes3(int[] nums) {
         int fast = 0;
         int slow = 0;
         for (;fast< nums.length;fast++){
-            if (nums[fast]!=0){
-                nums[slow]+= nums[fast];
-                nums[fast] = nums[slow]-nums[fast];
-                nums[slow] = nums[slow]-nums[fast];
+            if (nums[fast] != 0){
+                nums[slow] ^= nums[fast];
+                nums[fast] ^= nums[slow];
+                nums[slow] ^= nums[fast];
                 ++slow;
             }
         }
@@ -54,4 +54,5 @@ public class Solution001 {
             System.out.println(nums[i]);
         }
     }
+    
 }
