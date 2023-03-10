@@ -8,7 +8,7 @@ package 算法.排序算法;
 public class QuickSort {
 
     /* 快速排序 */
-    void quickSort(int[] nums, int leftborder, int rightborder) {
+    public void quickSort(int[] nums, int leftborder, int rightborder) {
         // 子数组长度为 1 时终止递归
         //函数出口
         if (leftborder >= rightborder){
@@ -30,19 +30,17 @@ public class QuickSort {
                 right--;
                 // 当这个循环不满足时，就意味着右边的数小于基准，需要排序，于是在底下紧接着把这个值排到左边
             }
-            if (left < right ){
-                //把小的排过来
-                nums[left] = nums[right];
-            }
+
+            //把小的排过来
+            nums[left] = nums[right];
+
             //上面排完之后，左指针开始走，排大的
             //从左边把比基准大的排出来
             while(left < right && nums[left] <= base){
                 left++;
             }
-            if (left < right ){
-                //把大的排过去
-                nums[right] = nums[left];
-            }
+            //把大的排过去
+            nums[right] = nums[left];
         }
         //上面排完了，基准就会到中间，现在left和right相等
         //把基准赋到中间，那么就完成了排序
@@ -55,6 +53,14 @@ public class QuickSort {
         quickSort(nums,leftborder,right-1);
         //右子数组来排序
         quickSort(nums,left+1,rightborder);
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {3,2,1,5,6,4};
+        new QuickSort().quickSort(arr,0, arr.length-1);
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+        }
     }
 
 }
