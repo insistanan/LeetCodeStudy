@@ -1,15 +1,26 @@
-package 第二站.初级.链表;
+package 第二站.初级.链表.定义单链表;
 
+
+/**
+ * 构建一个简单的单链表
+ * @author insis
+ * @date 2023/03/11
+ */
 public class MyLinkedList {
-    class Node {
-        int val;
-        Node next;
-        Node(int val) {
-            this.val = val;
-        }
+    private int size;
+    //聚合/关联Node
+    private Node head;
+
+    public int getSize() {
+        return size;
     }
-    int size;
-    Node head;
+
+
+    public Node getHead() {
+        return head;
+    }
+
+
     /** Initialize your data structure here. */
     public MyLinkedList() {
         this.size = 0;
@@ -23,15 +34,20 @@ public class MyLinkedList {
         }
         Node temp = this.head;
         for (int i = 0; i < index; i++) {
-            temp = temp.next;
+            temp = temp.getNext();
         }
-        return temp.val;
+        return temp.getVal();
     }
 
     /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
     public void addAtHead(int val) {
         Node node = new Node(val);
-        node.next = this.head;
+        node.setNext(this.head);
+        this.head = node;
+        size++;
+    }
+    public void addAtHeadN(Node node) {
+        node.setNext(this.head);
         this.head = node;
         size++;
     }
@@ -40,16 +56,31 @@ public class MyLinkedList {
     public void addAtTail(int val) {
         if (size == 0) {
             this.head = new Node(val);
-            head.next = null;
+            head.setNext(null);
             size++;
         }else {
             Node temp = this.head;
-            while (temp.next != null) {
-                temp = temp.next;
+            while (temp.getNext() != null) {
+                temp = temp.getNext();
             }
             Node tail = new Node(val);
-            tail.next = null;
-            temp.next = tail;
+            tail.setNext(null);
+            temp.setNext(tail);
+            size++;
+        }
+    }
+    public void addAtTailN(Node node) {
+        if (size == 0) {
+            this.head = node;
+            head.setNext(null);
+            size++;
+        }else {
+            Node temp = this.head;
+            while (temp.getNext() != null) {
+                temp = temp.getNext();
+            }
+            node.setNext(null);
+            temp.setNext(node);
             size++;
         }
     }
@@ -70,11 +101,32 @@ public class MyLinkedList {
 
         Node temp = this.head;
         for (int i = 0; i < index - 1; i++) {
-            temp = temp.next;
+            temp = temp.getNext();
         }
         Node insertNode = new Node(val);
-        insertNode.next = temp.next;
-        temp.next = insertNode;
+        insertNode.setNext(temp.getNext());
+        temp.setNext(insertNode);
+        size++;
+    }
+    public void addAtIndexN(int index, Node node) {
+        if (index > this.size) {
+            return;
+        }
+        if (index <= 0) {
+            addAtHeadN(node);
+            return;
+        }
+        if (index == this.size) {
+            addAtTailN(node);
+            return;
+        }
+
+        Node temp = this.head;
+        for (int i = 0; i < index - 1; i++) {
+            temp = temp.getNext();
+        }
+        node.setNext(temp.getNext());
+        temp.setNext(node);
         size++;
     }
 
@@ -85,7 +137,7 @@ public class MyLinkedList {
         }
         if (index == 0) {
             if (size != 1) {
-                Node temp = this.head.next;
+                Node temp = this.head.getNext();
                 this.head =temp;
                 size--;
                 return;
@@ -97,10 +149,12 @@ public class MyLinkedList {
         }
         Node temp = this.head;
         for (int i = 0; i < index - 1; i++) {
-            temp = temp.next;
+            temp = temp.getNext();
         }
-        Node deleteNode = temp.next;
-        temp.next = deleteNode.next;
+        Node deleteNode = temp.getNext();
+        temp.setNext(deleteNode.getNext());
         size--;
     }
+
+
 }
